@@ -46,13 +46,24 @@ app.getMap = function () {
         zoom: 12
     });
 
-    // defining points of polygon here
+    // defining points of polygon here: boundaries of Toronto
     points = [
-        new Microsoft.Maps.Location(43.577539, -79.531720),
-        new Microsoft.Maps.Location(43.667959, -79.567202),
-        new Microsoft.Maps.Location(43.728789, -79.282219),
-        new Microsoft.Maps.Location(43.646752, -79.256077),
-        new Microsoft.Maps.Location(43.577539, -79.531720),
+        new Microsoft.Maps.Location(43.584721, -79.541365),
+        new Microsoft.Maps.Location(43.610629, -79.567029),
+        new Microsoft.Maps.Location(43.627276, -79.563436),
+        new Microsoft.Maps.Location(43.625848, -79.575361),
+        new Microsoft.Maps.Location(43.629626, -79.585825),
+
+        new Microsoft.Maps.Location(43.644599, -79.591420),
+        new Microsoft.Maps.Location(43.667592, -79.589045),
+        new Microsoft.Maps.Location(43.743851, -79.648292),
+        new Microsoft.Maps.Location(43.832546, -79.267848),
+        new Microsoft.Maps.Location(43.798602, -79.132959),
+
+        new Microsoft.Maps.Location(43.789980, -79.121711),
+        new Microsoft.Maps.Location(43.667366, -79.103675),
+        new Microsoft.Maps.Location(43.552493, -79.500425),
+        new Microsoft.Maps.Location(43.584721, -79.541365)
     ]
 
     let color = new Microsoft.Maps.Color(150,0,0,255)
@@ -78,10 +89,11 @@ app.pointInPolygon = function(pin) {
         }
         j=i;
     }
+
     if (inPoly) {
         app.map.entities.push(pin);
     } else {
-        alert("this location is not in Toronto")
+        alert("This location is outside the boundaries for this data set")
     }
 
 }

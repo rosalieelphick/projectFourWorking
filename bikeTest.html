@@ -1,141 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="public/styles/style.css">
+
+    <style>
+        #resultMap {
+            width: 500px;
+            height: 500px;
+            border: solid 2px red;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>heeyyyyyy git hub is working</h1>
+    <h1>this is a test</h1>
+
+    <div id="resultMap">
+    </div>
+
+    <form action="" class="addressQuery">
+        <input type="text" class="queryText">
+        <input type="submit">
+    </form>
+
+    <div class="textResults">
+
+    </div>
 
 
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' defer></script>
 
-    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
+        crossorigin='anonymous'></script>
 
-    <script>
+    <script src="bikeTest.js"></script>
 
-        $(function(){
-
-            // const url = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Bicycle_Thefts/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json";
-
-            // this just returns the geometry 
-            // outfield by default only returns lat and lon
-            // const url = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Bicycle_Thefts/FeatureServer/0/query?outSR=4326&"
-
-            // const url = "https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Bicycle_Thefts/FeatureServer/0/query"
-            
-            // const url = `https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Bicycle_Thefts/FeatureServer/0/query?where=1%3D1&outFields=&geometry=%20${userX}%2C${userY}&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&distance=500&units=esriSRUnit_Meter&outSR=4326&f=json`
-            
-            let userX = -79.369454;
-            let userY = 43.654761;
-
-            // st. lawrence market: 359
-            userX = -79.371527;
-            userY = 43.648842;
-
-            // hackeryou: 373
-            userX = -79.397848;
-            userY = 43.648474;
-
-            // queen and sherbourne: 396
-            userX = -79.369443;
-            userY = 43.654761;
-
-            // union station: 415
-            userX = -79.380642;
-            userY = 43.645998;
-
-            // harbourfront center: 220
-            userX = -79.381868;
-            userY = 43.639978; 
-
-            // jane and finch: 6
-            userX = -79.517691;
-            userY = 43.757301;
-
-            // high park: 34
-            userX = -79.463753;
-            userY = 43.646477;
-
-            // ACC: 321
-            userX = -79.379033;
-            userY = 43.644025;
-
-            // Front and Spadina: 382
-            userX = -79.393799;
-            userY = 43.642766;
-
-            // Church and Wellsley: 542
-            userX = -79.380875;
-            userY = 43.665695;
-
-            // the ROM: 378
-            userX = -79.394799;
-            userY = 43.667974;
-
-            // sherbourne station: 277
-            userX = -79.376436;
-            userY = 43.672136;
-
-            // church and bloor: 401
-            userX = -79.383172;
-            userY = 43.671046;
-
-            // queens park station: 523 
-            userX = -79.390437;
-            userY = 43.659852;
-
-            //wellsely and jarvis: 516
-            userX = -79.378313;
-            userY = 43.666272;
-
-            //church and carlton: 592
-            userX = -79.379308;
-            userY = 43.661849;
-
-            // church and gerrard: 572
-            userX = -79.378499;
-            userY = 43.659825; 
-
-            // jarvis and dundas: 553
-            userX = -79.374549;
-            userY = 43.657056;
-
-            const url = `https://services.arcgis.com/S9th0jAJ7bqgIRjw/arcgis/rest/services/Bicycle_Thefts/FeatureServer/0/query?`
-            
-            $.ajax({
-                url: url,
-                method: "GET",
-                dataType: "json",
-                data: {
-                    geometry: `${userX},${userY}`,
-                    geometryType: "esriGeometryPoint",
-                    inSR: 4326,
-                    spatialRel: "esriSpatialRelIntersects",
-                    distance: 1000,
-                    units: "esriSRUnit_Meter",
-                    f: "json",
-                    outSR: 4326,
-                    outFields: "*",
-                    where: "Occurrence_Year > 2016"
-                }
-
-            }).then((res) => {                 
-                let results = res.features.length
-                determineResults(results)
-            });
-
-            function determineResults(numberOfThefts) {
-                if (numberOfThefts > 500) {
-                    console.log("reallll bad")
-                }
-            }
-
-        });
-
-    </script>
-    
 </body>
+
 </html>
